@@ -1,7 +1,7 @@
 import React from "react";
 
 function Order() {
-  
+  const [form, setForm] = useState({});
   return (
     <div className="order">
       <div className="container">
