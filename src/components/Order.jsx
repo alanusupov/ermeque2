@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Order() {
   const [form, setForm] = useState({});
 
-  const handleChange = (e) => {
-    const {value, name} = e.target;
-    setForm((prev) => ({
-      ...prev, [name]: value
-    }))
-  }
+  const handleChange = e => {
+    const { value, name } = e.target;
+    setForm(prev => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
   return (
     <div className="order">
       <div className="container">
@@ -18,15 +19,43 @@ function Order() {
           доставка бесплатная
         </p>
         <div className="order-form">
-        <input onChange={handleChange} value={form.fio} type="text" name="fio" placeholder="ФИО"/>
-        <input onChange={handleChange} value={form.num} type="text" name="num" placeholder="Номер телефона"/>
-        <input onChange={handleChange} value={form.address} type="text" name="address" placeholder="Адрес"/>
-        <input onChange={handleChange} value={form.meters} type="text" name="meters" placeholder="Метраж ткани"/>
-        <input onChange={handleChange} value={form.date} type="text" name="date" placeholder="Желаемая дата"/>
-        
-          <button>
-            Оформить предзаказ
-          </button>
+          <input
+            onChange={handleChange}
+            value={form.fio}
+            type="text"
+            name="fio"
+            placeholder="ФИО"
+          />
+          <input
+            onChange={handleChange}
+            value={form.num}
+            type="text"
+            name="num"
+            placeholder="Номер телефона"
+          />
+          <input
+            onChange={handleChange}
+            value={form.address}
+            type="text"
+            name="address"
+            placeholder="Адрес"
+          />
+          <input
+            onChange={handleChange}
+            value={form.meters}
+            type="text"
+            name="meters"
+            placeholder="Метраж ткани"
+          />
+          <input
+            onChange={handleChange}
+            value={form.date}
+            type="text"
+            name="date"
+            placeholder="Желаемая дата"
+          />
+
+          <button>Оформить предзаказ</button>
         </div>
       </div>
     </div>

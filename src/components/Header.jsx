@@ -13,7 +13,7 @@ import {
   DropdownItem,
   NavbarText,
 } from "reactstrap";
-import logo from "../media/image 4.png";
+import logo from "../media/logo.png";
 import phone from "../media/phone.svg";
 function Header(args) {
   const [isOpen, setIsOpen] = useState(false);
