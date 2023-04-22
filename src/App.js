@@ -6,6 +6,7 @@ import Info from "./components/Info";
 import Services from "./components/Services";
 import Calculator from "./components/Calculator";
 import Order from "./components/Order";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Services />
       <Calculator />
       <Order />
+      <Footer />
     </div>
   );
 }

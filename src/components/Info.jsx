@@ -1,23 +1,15 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import vidsrc from "../media/introvid.mp4";
 function Info() {
+  const { t } = useTranslation();
   return (
     <div className="info">
       <div className="info-example">
         <div className="info-example-info">
-          <h3 className="info-example-title">Пример декатировки</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur. Lectus condimentum et duis
-            leo habitasse. Vel quis sit sed diam vel amet scelerisque. Habitasse
-            sit dictum nam lectus id lacinia nam sed. Cursus lectus id duis
-            ullamcorper nibh id facilisi ac arcu.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur. Lectus condimentum et duis
-            leo habitasse. Vel quis sit sed diam vel amet scelerisque. Habitasse
-            sit dictum nam lectus id lacinia nam sed. Cursus lectus id duis
-            ullamcorper nibh id facilisi ac arcu.
-          </p>
+          <h3 className="info-example-title">{t("e")}</h3>
+          <p>{t("e1")}</p>
+          <p>{t("e2")}</p>
         </div>
         <div className="info-example-video">
           <video controls>

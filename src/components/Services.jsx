@@ -4,30 +4,32 @@ import s2 from "../media/s2.svg";
 import s3 from "../media/s3.svg";
 import s5 from "../media/s5.svg";
 import s4 from "../media/s4.svg";
+import { useTranslation } from "react-i18next";
 function Services() {
+  const { t } = useTranslation();
   return (
     <div className="services container">
-      <h3 className="services-title">В наши услуги входят</h3>
+      <h3 className="services-title">{t("s1")}</h3>
       <ul className="services-list">
         <li className="services-list-item">
           <img src={s1} alt="" />
-          <p>Консультация</p>
+          <p>{t("s2")}</p>
         </li>
         <li className="services-list-item">
           <img src={s2} alt="" />
-          <p>Быстрая и качественная пропарка</p>
+          <p>{t("s3")}</p>
         </li>
         <li className="services-list-item">
           <img src={s3} alt="" />
-          <p>Бесплатная доставка при заказе от 500 метров</p>
+          <p>{t("s4")}</p>
         </li>
         <li className="services-list-item">
           <img src={s4} alt="" />
-          <p>Загрузка и выгрузка товара</p>
+          <p>{t("s5")}</p>
         </li>
         <li className="services-list-item">
           <img src={s5} alt="" />
-          <p>Возможна онлайн оплата</p>
+          <p>{t("s6")}</p>
         </li>
       </ul>
     </div>
