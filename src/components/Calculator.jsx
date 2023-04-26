@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import arrow from "../media/arrow.svg";
 function Calculator() {
   const [selectOpen, setSelectOpen] = useState(false);
   const [selectValue, setSelectValue] = useState("");
   const [meters, setMeters] = useState(0);
   const [total, setTotal] = useState(0);
+  const { t } = useTranslation();
   const getSum = () => {
     const type = selectValue === "рулон" ? 4 : 5;
     if (type) {
@@ -62,7 +64,7 @@ function Calculator() {
         </div>
 
         <button onClick={() => getSum()} className="calc-btn">
-          Посчитать
+          {t("c1")}
         </button>
       </div>
     </div>

@@ -6,16 +6,20 @@ import Info from "./components/Info";
 import Services from "./components/Services";
 import Calculator from "./components/Calculator";
 import Order from "./components/Order";
+import Footer from "./components/Footer";
+import Stats from "./components/Stats";
 
 function App() {
   return (
     <div className="App">
       <Header />
       <Intro />
-      <Info />
+      {/* <Info /> */}
       <Services />
-      <Calculator />
-      <Order />
+      <Stats />
+      {/* <Calculator /> */}
+      {/* <Order /> */}
+      <Footer />
     </div>
   );
 }

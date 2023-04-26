@@ -1,8 +1,18 @@
+import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { db } from "..";
 
 function Order() {
-  const [form, setForm] = useState({});
-
+  const { t } = useTranslation();
+  const [form, setForm] = useState({
+    fio: "",
+    num: "",
+    address: "",
+    meters: "",
+    date: "",
+  });
+  const [loading, setLoading] = useState(false);
   const handleChange = e => {
     const { value, name } = e.target;
     setForm(prev => ({
@@ -10,28 +20,48 @@ function Order() {
       [name]: value,
     }));
   };
+  console.log(form);
+
+  const createDoc = async (data, collectionId, docId) => {
+    if (docId) {
+      await setDoc(doc(db, collectionId, docId), data);
+    } else {
+      await addDoc(collection(db, collectionId), data);
+    }
+  };
+
+  const sendData = async () => {
+    if (Object.values(form).every(x => x.length > 0)) {
+      setLoading(true);
+      try {
+        await createDoc(form, "requests");
+        setForm({ fio: "", num: "", address: "", meters: "", date: "" });
+        setLoading(false);
+      } catch (error) {
+        console.log("error");
+        setLoading(false);
+      }
+    }
+  };
   return (
     <div className="order">
       <div className="container">
-        <h3 className="order-title">Сделать предзаказ</h3>
-        <p className="order-text">
-          Примечание : цена одного метра 4 сома, при заказе от 500 метров
-          доставка бесплатная
-        </p>
+        <h3 className="order-title">{t("p1")}</h3>
+        <p className="order-text">{t("p2")}</p>
         <div className="order-form">
           <input
             onChange={handleChange}
             value={form.fio}
             type="text"
             name="fio"
-            placeholder="ФИО"
+            placeholder={t("p3")}
           />
           <input
             onChange={handleChange}
             value={form.num}
             type="text"
             name="num"
-            placeholder="Номер телефона"
+            placeholder={t("p4")}
           />
           <input
             onChange={handleChange}
@@ -45,17 +75,17 @@ function Order() {
             value={form.meters}
             type="text"
             name="meters"
-            placeholder="Метраж ткани"
+            placeholder={t("p5")}
           />
           <input
             onChange={handleChange}
             value={form.date}
             type="text"
             name="date"
-            placeholder="Желаемая дата"
+            placeholder={t("p6")}
           />
 
-          <button>Оформить предзаказ</button>
+          <button onClick={sendData}>{loading ? "loading" : t("p7")}</button>
         </div>
       </div>
     </div>
